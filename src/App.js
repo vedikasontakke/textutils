@@ -35,14 +35,14 @@ function App() {
         showAlert("Dark mode has been enabled", "success");
 
         // used to chnage the document title dynamically
-        document.title = 'TextUtils - Dark MOde';
+       // document.title = 'TextUtils - Dark MOde';
       } else {
         setMode('light');
         document.body.style.backgroundColor = "#e6e6e6";
         showAlert("Light mode has been enabled", "success");
 
         // used to chnage the document title dynamically
-        document.title = 'TextUtils - Light MOde';
+       // document.title = 'TextUtils - Light MOde';
       }
     }
   
@@ -55,7 +55,7 @@ function App() {
         <Alert alert = {alert}/>
         <div className="container my-3">
           <Routes>
-            <Route path="/" element={<TextForm heading="Enter the text to analyze" mode={mode}  showAlert={showAlert}/>} />
+            <Route path="/" element={<TextForm heading="Try TextUtils" mode={mode}  showAlert={showAlert}/>} />
             <Route path="/about" element={<About mode={mode} toggleMode={toggleMode} />} />
           </Routes>
         </div>

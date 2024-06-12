@@ -4,6 +4,7 @@ import React, {useState} from 'react'
 
 export default function TextForm(props) {
 
+    
     // convert to upperCase
     const handleUpClick = ()=>{
         let newText = text.toUpperCase();
@@ -69,18 +70,18 @@ export default function TextForm(props) {
     <>
 
     <div className="container" style={{color : props.mode === 'dark' ? 'white': 'black'}}>
-     <h2>{props.heading}</h2>
+     <h1 className='mb-4'>{props.heading}</h1>
     <div className="mb-3">
         {/* If I didn't use onChange event I was unable to change the text (unable to type anything in text box) */
            /* here in the style one { } is for javascript and another is for object */ }
         <textarea  className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor : props.mode === 'dark' ? '#e6e6ff': 'white'}} id="myBox" rows="8"></textarea>
     </div>
 
-    <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Uppercase </button>
-    <button className="btn btn-primary mx-2" onClick={handleLowClick}>Convert to Lowercase </button>
-    <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear Text</button>
-    <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy Text</button>
-    <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces </button>
+    <button disabled={text.length===0} className="btn btn-primary mx-1 my-1 " onClick={handleUpClick}>Convert to Uppercase </button>
+    <button disabled={text.length===0} className="btn btn-primary mx-1 my-1 " onClick={handleLowClick}>Convert to Lowercase </button>
+    <button disabled={text.length===0} className="btn btn-primary mx-1 my-1 " onClick={handleClearClick}>Clear Text</button>
+    <button disabled={text.length===0} className="btn btn-primary mx-1 my-1 " onClick={handleCopy}>Copy Text</button>
+    <button disabled={text.length===0} className="btn btn-primary mx-1 my-1 " onClick={handleExtraSpaces}>Remove Extra Spaces </button>
 
 
 
@@ -93,8 +94,8 @@ export default function TextForm(props) {
         <br></br>
         <h1> Your text Summary</h1>
         <p> {countWords(text)} words and {text.length} characters</p>
-        <p>{0.008 * text.split("").length} Minutes read</p>
-        <h2>Preview</h2>
+        <p>{0.008 * countWords(text)} Minutes read</p>
+        <h1 my-1>Preview</h1>
         <p>{text.length > 0 ? text : "Enter something to preview it here "}</p>
     </div>
 

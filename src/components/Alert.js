@@ -10,9 +10,12 @@ export default function Alert(props) {
   return (
     // if props.alert is null then second div will not get evaluted 
     // if props.alert is not null then second div will get evaluted
-    props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
+    <div style={{height: '50px'}}>
+        {props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
         <strong>{capitalize(props.alert.type)}</strong>: {props.alert.msg}
+        </div>}
     </div>
+   
   )
 }
 
